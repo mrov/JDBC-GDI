@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -82,8 +84,9 @@ public class Edicao extends JFrame {
 				try {
 					Statement stmt = con.createStatement();
 					String comando = null;
-					comando = comando.format("INSERT INTO tb_edicao VALUES(ID_EDICAO.Nextval,(SELECT REF(J) FROM tb_jornalista J where j.cpf = '%s'), TO_DATE('%s', 'dd/MM/yyyy'));", textFieldCPF.getText(),textFieldData.getText());
+					comando = comando.format("INSERT INTO tb_edicao VALUES(ID_EDICAO.Nextval,(SELECT REF(J) FROM tb_jornalista J where j.cpf = '%s'), TO_DATE('%s', 'dd/MM/yyyy'))", textFieldCPF.getText(),textFieldData.getText());
 					System.out.println(comando);
+					new JOptionPane().showMessageDialog(null, "Edição Adicionado com Sucesso");
 					stmt.executeUpdate(comando);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
