@@ -93,6 +93,26 @@ public class Telaprincipal extends JFrame {
 			}
 		});
 		mnAdicionar.add(mntmJornalista);
+		
+		JMenuItem mntmSeo = new JMenuItem("Se\u00E7\u00E3o");
+		mntmSeo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Secao novatela = new Secao(con);
+				novatela.setVisible(true);
+				dispose();
+			}
+		});
+		mnAdicionar.add(mntmSeo);
+		
+		JMenuItem mntmMateria = new JMenuItem("Materia");
+		mntmMateria.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Materia novatela = new Materia(con);
+				novatela.setVisible(true);
+				dispose();
+			}
+		});
+		mnAdicionar.add(mntmMateria);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
